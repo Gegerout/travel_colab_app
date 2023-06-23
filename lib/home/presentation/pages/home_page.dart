@@ -2,8 +2,204 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travell_colab_app/home/presentation/widgets/text_field_widget.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var screens = [
+    HomeWidget(),
+    HomeWidget(),
+    HomeWidget(),
+    HomeWidget(),
+    HomeWidget(),
+  ];
+
+  int index = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: screens.elementAt(index),
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+        height: 75,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 30, right: 30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: 48,
+                height: 55,
+                decoration: BoxDecoration(
+                    color: index == 0
+                        ? const Color(0xFF1088AE)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      index == 0
+                          ? "assets/images/home_active.png"
+                          : "assets/images/home.png",
+                      width: 20,
+                      height: 20,
+                      fit: BoxFit.fill,
+                    ),
+                    const SizedBox(height: 4),
+                    Text("Home",
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
+                          color: index == 0
+                              ? Colors.white
+                              : const Color(0xFF303748),
+                        )),
+                  ],
+                ),
+              ),
+              Container(
+                width: 48,
+                height: 55,
+                decoration: BoxDecoration(
+                    color: index == 1
+                        ? const Color(0xFF1088AE)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      index == 1
+                          ? "assets/images/globe_active.png"
+                          : "assets/images/globe.png",
+                      width: 20,
+                      height: 20,
+                      fit: BoxFit.fill,
+                    ),
+                    const SizedBox(height: 4),
+                    Text("Social",
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
+                          color: index == 1
+                              ? Colors.white
+                              : const Color(0xFF303748),
+                        )),
+                  ],
+                ),
+              ),
+              Container(
+                width: 48,
+                height: 55,
+                decoration: BoxDecoration(
+                    color: index == 2
+                        ? const Color(0xFF1088AE)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      index == 2
+                          ? "assets/images/map_active.png"
+                          : "assets/images/map.png",
+                      width: 20,
+                      height: 20,
+                      fit: BoxFit.contain,
+                    ),
+                    const SizedBox(height: 4),
+                    Text("Map",
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
+                          color: index == 2
+                              ? Colors.white
+                              : const Color(0xFF303748),
+                        )),
+                  ],
+                ),
+              ),
+              Container(
+                width: 48,
+                height: 55,
+                decoration: BoxDecoration(
+                    color: index == 3
+                        ? const Color(0xFF1088AE)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      index == 3
+                          ? "assets/images/clip_active.png"
+                          : "assets/images/clip.png",
+                      width: 20,
+                      height: 20,
+                      fit: BoxFit.fill,
+                    ),
+                    const SizedBox(height: 4),
+                    Text("Trips",
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
+                          color: index == 3
+                              ? Colors.white
+                              : const Color(0xFF303748),
+                        )),
+                  ],
+                ),
+              ),
+              Container(
+                width: 48,
+                height: 55,
+                decoration: BoxDecoration(
+                    color: index == 4
+                        ? const Color(0xFF1088AE)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      index == 4
+                          ? "assets/images/profile_active.png"
+                          : "assets/images/profile.png",
+                      width: 20,
+                      height: 20,
+                      fit: BoxFit.fill,
+                    ),
+                    const SizedBox(height: 4),
+                    Text("Profile",
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
+                          color: index == 4
+                              ? Colors.white
+                              : const Color(0xFF303748),
+                        )),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class HomeWidget extends StatelessWidget {
+  HomeWidget({Key? key}) : super(key: key);
 
   List list = [
     "assets/images/list_1.png",
@@ -212,7 +408,8 @@ class HomePage extends StatelessWidget {
                                 ),
                                 const Spacer(),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 8, bottom: 8),
+                                  padding:
+                                      const EdgeInsets.only(left: 8, bottom: 8),
                                   child: Container(
                                     width: 189,
                                     height: 104,
@@ -242,7 +439,8 @@ class HomePage extends StatelessWidget {
                                               ),
                                               Text(data[index + 2][3],
                                                   style: GoogleFonts.poppins(
-                                                      fontWeight: FontWeight.w400,
+                                                      fontWeight:
+                                                          FontWeight.w400,
                                                       fontSize: 12,
                                                       color: const Color(
                                                           0xFF111417))),
@@ -253,30 +451,34 @@ class HomePage extends StatelessWidget {
                                             children: [
                                               Text("4.9",
                                                   style: GoogleFonts.poppins(
-                                                      fontWeight: FontWeight.w400,
+                                                      fontWeight:
+                                                          FontWeight.w400,
                                                       fontSize: 12)),
                                               const Icon(
                                                 Icons.star,
                                                 color: Color(0xFFF4E44F),
                                               ),
-                                              const SizedBox(width: 65,),
+                                              const SizedBox(
+                                                width: 65,
+                                              ),
                                               SizedBox(
                                                 width: 59,
                                                 height: 29,
                                                 child: ElevatedButton(
                                                     onPressed: () {},
                                                     style: ElevatedButton.styleFrom(
-                                                      padding: EdgeInsets.zero,
+                                                        padding: EdgeInsets
+                                                            .zero,
                                                         elevation: 0,
-                                                        backgroundColor:
-                                                            Colors.white,
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8))),
-                                                    child: Text("Detail",
+                                                        backgroundColor: Colors
+                                                            .white,
+                                                        shape: RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8))),
+                                                    child: Text(
+                                                        "Detail",
                                                         style: GoogleFonts.poppins(
                                                             fontWeight:
                                                                 FontWeight.w600,
