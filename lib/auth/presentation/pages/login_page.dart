@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travell_colab_app/auth/presentation/states/login_state.dart';
+import 'package:travell_colab_app/home/presentation/pages/home_page.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ConsumerState<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -74,6 +77,9 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(15),
                           color: Colors.white),
                       child: TextFormField(
+                        onChanged: (value) {
+                          ref.watch(loginProvider).checkEmail(value);
+                        },
                         style: GoogleFonts.lato(
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
@@ -109,6 +115,10 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(15),
                           color: Colors.white),
                       child: TextFormField(
+                        onChanged: (value) {
+                          ref.watch(loginProvider).checkPassword(value);
+                        },
+                        obscureText: true,
                         style: GoogleFonts.lato(
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
@@ -189,9 +199,20 @@ class _LoginPageState extends State<LoginPage> {
                       width: double.infinity,
                       height: 40,
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: ref.read(loginProvider.notifier).isValid
+                              ? () {
+                                  Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => HomePage()),
+                                      (route) => false);
+                                }
+                              : () {},
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF1088AE),
+                              backgroundColor:
+                                  ref.read(loginProvider.notifier).isValid
+                                      ? const Color(0xFF1088AE)
+                                      : const Color(0xFF79829B),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
                           child: Text("Log in",
