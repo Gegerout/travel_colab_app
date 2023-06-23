@@ -35,159 +35,194 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: 48,
-                height: 55,
-                decoration: BoxDecoration(
-                    color: index == 0
-                        ? const Color(0xFF1088AE)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      index == 0
-                          ? "assets/images/home_active.png"
-                          : "assets/images/home.png",
-                      width: 20,
-                      height: 20,
-                      fit: BoxFit.fill,
-                    ),
-                    const SizedBox(height: 4),
-                    Text("Home",
-                        style: GoogleFonts.lato(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 12,
-                          color: index == 0
-                              ? Colors.white
-                              : const Color(0xFF303748),
-                        )),
-                  ],
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    index = 0;
+                  });
+                },
+                child: Container(
+                  width: 48,
+                  height: 55,
+                  decoration: BoxDecoration(
+                      color: index == 0
+                          ? const Color(0xFF1088AE)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        index == 0
+                            ? "assets/images/home_active.png"
+                            : "assets/images/home.png",
+                        width: 20,
+                        height: 20,
+                        fit: BoxFit.fill,
+                      ),
+                      const SizedBox(height: 4),
+                      Text("Home",
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 12,
+                            color: index == 0
+                                ? Colors.white
+                                : const Color(0xFF303748),
+                          )),
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                width: 48,
-                height: 55,
-                decoration: BoxDecoration(
-                    color: index == 1
-                        ? const Color(0xFF1088AE)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      index == 1
-                          ? "assets/images/globe_active.png"
-                          : "assets/images/globe.png",
-                      width: 20,
-                      height: 20,
-                      fit: BoxFit.fill,
-                    ),
-                    const SizedBox(height: 4),
-                    Text("Social",
-                        style: GoogleFonts.lato(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 12,
-                          color: index == 1
-                              ? Colors.white
-                              : const Color(0xFF303748),
-                        )),
-                  ],
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    index = 1;
+                  });
+                },
+                child: Container(
+                  width: 48,
+                  height: 55,
+                  decoration: BoxDecoration(
+                      color: index == 1
+                          ? const Color(0xFF1088AE)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        index == 1
+                            ? "assets/images/globe_active.png"
+                            : "assets/images/globe.png",
+                        width: 20,
+                        height: 20,
+                        fit: BoxFit.fill,
+                      ),
+                      const SizedBox(height: 4),
+                      Text("Social",
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 12,
+                            color: index == 1
+                                ? Colors.white
+                                : const Color(0xFF303748),
+                          )),
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                width: 48,
-                height: 55,
-                decoration: BoxDecoration(
-                    color: index == 2
-                        ? const Color(0xFF1088AE)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      index == 2
-                          ? "assets/images/map_active.png"
-                          : "assets/images/map.png",
-                      width: 20,
-                      height: 20,
-                      fit: BoxFit.contain,
-                    ),
-                    const SizedBox(height: 4),
-                    Text("Map",
-                        style: GoogleFonts.lato(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 12,
-                          color: index == 2
-                              ? Colors.white
-                              : const Color(0xFF303748),
-                        )),
-                  ],
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    index = 2;
+                  });
+                },
+                child: Container(
+                  width: 48,
+                  height: 55,
+                  decoration: BoxDecoration(
+                      color: index == 2
+                          ? const Color(0xFF1088AE)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        index == 2
+                            ? "assets/images/map_active.png"
+                            : "assets/images/map.png",
+                        width: 20,
+                        height: 20,
+                        fit: BoxFit.contain,
+                      ),
+                      const SizedBox(height: 4),
+                      Text("Map",
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 12,
+                            color: index == 2
+                                ? Colors.white
+                                : const Color(0xFF303748),
+                          )),
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                width: 48,
-                height: 55,
-                decoration: BoxDecoration(
-                    color: index == 3
-                        ? const Color(0xFF1088AE)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      index == 3
-                          ? "assets/images/clip_active.png"
-                          : "assets/images/clip.png",
-                      width: 20,
-                      height: 20,
-                      fit: BoxFit.fill,
-                    ),
-                    const SizedBox(height: 4),
-                    Text("Trips",
-                        style: GoogleFonts.lato(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 12,
-                          color: index == 3
-                              ? Colors.white
-                              : const Color(0xFF303748),
-                        )),
-                  ],
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    index = 3;
+                  });
+                },
+                child: Container(
+                  width: 48,
+                  height: 55,
+                  decoration: BoxDecoration(
+                      color: index == 3
+                          ? const Color(0xFF1088AE)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        index == 3
+                            ? "assets/images/clip_active.png"
+                            : "assets/images/clip.png",
+                        width: 20,
+                        height: 20,
+                        fit: BoxFit.fill,
+                      ),
+                      const SizedBox(height: 4),
+                      Text("Trips",
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 12,
+                            color: index == 3
+                                ? Colors.white
+                                : const Color(0xFF303748),
+                          )),
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                width: 48,
-                height: 55,
-                decoration: BoxDecoration(
-                    color: index == 4
-                        ? const Color(0xFF1088AE)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      index == 4
-                          ? "assets/images/profile_active.png"
-                          : "assets/images/profile.png",
-                      width: 20,
-                      height: 20,
-                      fit: BoxFit.fill,
-                    ),
-                    const SizedBox(height: 4),
-                    Text("Profile",
-                        style: GoogleFonts.lato(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 12,
-                          color: index == 4
-                              ? Colors.white
-                              : const Color(0xFF303748),
-                        )),
-                  ],
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    index = 4;
+                  });
+                },
+                child: Container(
+                  width: 48,
+                  height: 55,
+                  decoration: BoxDecoration(
+                      color: index == 4
+                          ? const Color(0xFF1088AE)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        index == 4
+                            ? "assets/images/profile_active.png"
+                            : "assets/images/profile.png",
+                        width: 20,
+                        height: 20,
+                        fit: BoxFit.fill,
+                      ),
+                      const SizedBox(height: 4),
+                      Text("Profile",
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 12,
+                            color: index == 4
+                                ? Colors.white
+                                : const Color(0xFF303748),
+                          )),
+                    ],
+                  ),
                 ),
               ),
             ],
